@@ -2,8 +2,15 @@
 
 [ApiController]
 [Route("[controller]")]
-public class PizzaController(IPizzaCore pizzaCore) : ControllerBase
+public class PizzaController : ControllerBase
 {
+	private readonly IPizzaCore pizzaCore;
+
+	public PizzaController(IPizzaCore pizzaCore)
+	{
+		this.pizzaCore = pizzaCore;
+	}
+
 	/// <summary>
 	/// Get Pizza by Id.
 	/// </summary>

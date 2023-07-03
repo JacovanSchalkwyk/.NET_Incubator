@@ -1,7 +1,13 @@
 ﻿namespace Core;
 
-public class PizzaCore(DatabaseContext databaseContext) : IPizzaCore
+public class PizzaCore : IPizzaCore
 {
+	private readonly DatabaseContext databaseContext;
+
+	public PizzaCore(DatabaseContext databaseContext)
+	{
+		this.databaseContext = databaseContext;
+	}
 	public async Task<PizzaModel?> GetAsync(int id)
 	{
 		var entity = await databaseContext.Pizzas.FirstOrDefaultAsync(x => x.Id == id);
