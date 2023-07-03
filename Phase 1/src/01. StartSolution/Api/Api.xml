@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Controllers.PizzaController.Get(System.Int32)">
+            <summary>
+            Get Pizza by Id.
+            </summary>
+            <param name="id">Pizza Id</param>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:Api.Controllers.PizzaController.Search">
+            <summary>
+            Get all Pizzas.
+            </summary>
+            <returns>ActionResult</returns>
+        </member>
+        <member name="M:Api.Controllers.PizzaController.Create(Common.Models.PizzaModel)">
+             <summary>
+             Create Pizza.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST api/Pizza
+                 {
+                   "name": "Hawaiian",
+                   "description": "Hawaiian pizza is a pizza originating in Canada, and is traditionally topped with pineapple, tomato sauce, cheese, and either ham or bacon.",
+                   "price": "99"
+                 }
+             </remarks>
+             <param name="model">Pizza Model</param>
+             <returns>ActionResult</returns>
+        </member>
+        <member name="M:Api.Controllers.PizzaController.Update(Common.Models.PizzaModel)">
+             <summary>
+             Update Pizza.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT api/Pizza/1
+                 {
+                   "price": "119"
+                 }
+             </remarks>
+             <param name="model">Pizza Model</param>
+             <returns>ActionResult</returns>
+        </member>
+        <member name="M:Api.Controllers.PizzaController.Delete(System.Int32)">
+            <summary>
+            Delete Pizza by Id.
+            </summary>
+            <param name="id">Pizza Id</param>
+            <returns>ActionResult</returns>
+        </member>
+    </members>
+</doc>
