@@ -1,4 +1,6 @@
-﻿namespace Core;
+﻿using Common.Models.Pizza;
+
+namespace Core;
 
 public class PizzaCore : IPizzaCore
 {

@@ -1,5 +1,6 @@
 namespace Test.Core;
 
+using Common.Models.Pizza;
 using Test.Setup.TestData.Pizza;
 
 [TestFixture]

@@ -1,4 +1,6 @@
-﻿namespace Core.Contracts;
+﻿using Common.Models.Pizza;
+
+namespace Core.Contracts;
 
 public interface IPizzaCore
 {

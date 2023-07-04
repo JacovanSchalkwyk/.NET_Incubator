@@ -1,4 +1,6 @@
-﻿namespace Test.Setup.TestData.Pizza;
+﻿using Common.Models.Pizza;
+
+namespace Test.Setup.TestData.Pizza;
 
 public static class PizzaTestData
 {
