@@ -4,8 +4,14 @@ public class DeletePizzaCommand : IRequest<Result>
 {
 	public int? Id { get; set; }
 
-	public class DeletePizzaCommandHandler(DatabaseContext databaseContext) : IRequestHandler<DeletePizzaCommand, Result>
+	public class DeletePizzaCommandHandler : IRequestHandler<DeletePizzaCommand, Result>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public DeletePizzaCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result> Handle(DeletePizzaCommand request, CancellationToken cancellationToken)
 		{
 			if (request.Id == null)

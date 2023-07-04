@@ -4,8 +4,14 @@ public class CreateCustomerCommand : IRequest<Result<CustomerModel>>
 {
 	public CreateCustomerModel? Data { get; set; }
 
-	public class CreateCustomerCommandHandler(DatabaseContext databaseContext) : IRequestHandler<CreateCustomerCommand, Result<CustomerModel>>
+	public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result<CustomerModel>>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public CreateCustomerCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result<CustomerModel>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
 		{
 			if (request.Data == null)

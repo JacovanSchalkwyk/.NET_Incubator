@@ -4,8 +4,14 @@ public class CreatePizzaCommand : IRequest<Result<PizzaModel>>
 {
 	public CreatePizzaModel? Data { get; set; }
 
-	public class CreatePizzaCommandHandler(DatabaseContext databaseContext) : IRequestHandler<CreatePizzaCommand, Result<PizzaModel>>
+	public class CreatePizzaCommandHandler : IRequestHandler<CreatePizzaCommand, Result<PizzaModel>>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public CreatePizzaCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result<PizzaModel>> Handle(CreatePizzaCommand request, CancellationToken cancellationToken)
 		{
 			if(request.Data == null)

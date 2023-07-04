@@ -6,8 +6,14 @@ public class UpdatePizzaCommand : IRequest<Result<PizzaModel>>
 
 	public UpdatePizzaModel? Data { get; set; }
 
-	public class UpdatePizzaCommandHandler(DatabaseContext databaseContext) : IRequestHandler<UpdatePizzaCommand, Result<PizzaModel>>
+	public class UpdatePizzaCommandHandler : IRequestHandler<UpdatePizzaCommand, Result<PizzaModel>>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public UpdatePizzaCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result<PizzaModel>> Handle(UpdatePizzaCommand request, CancellationToken cancellationToken)
 		{
 			if (request.Data == null || request.Id == null)

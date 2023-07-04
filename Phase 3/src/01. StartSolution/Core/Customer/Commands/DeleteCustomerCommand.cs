@@ -4,8 +4,14 @@ public class DeleteCustomerCommand : IRequest<Result>
 {
 	public int? Id { get; set; }
 
-	public class DeleteCustomerCommandHandler(DatabaseContext databaseContext) : IRequestHandler<DeleteCustomerCommand, Result>
+	public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, Result>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public DeleteCustomerCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
 		{
 			if (request.Id == null)

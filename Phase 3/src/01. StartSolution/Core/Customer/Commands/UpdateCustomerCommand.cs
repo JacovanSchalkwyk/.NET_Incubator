@@ -6,8 +6,14 @@ public class UpdateCustomerCommand : IRequest<Result<CustomerModel>>
 
 	public UpdateCustomerModel? Data { get; set; }
 
-	public class UpdateCustomerCommandHandler(DatabaseContext databaseContext) : IRequestHandler<UpdateCustomerCommand, Result<CustomerModel>>
+	public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Result<CustomerModel>>
 	{
+		private readonly DatabaseContext databaseContext;
+
+		public UpdateCustomerCommandHandler(DatabaseContext databaseContext)
+		{
+			this.databaseContext = databaseContext;
+		}
 		public async Task<Result<CustomerModel>> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
 		{
 			if (request.Data == null || request.Id == null)

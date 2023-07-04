@@ -5,7 +5,7 @@ using Core.Pizza.Queries;
 
 [ApiController]
 [Route("[controller]")]
-public class PizzaController() : ApiController
+public class PizzaController : ApiController
 {
 	/// <summary>
 	/// Get Pizza by Id.
